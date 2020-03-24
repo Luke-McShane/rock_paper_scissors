@@ -15,39 +15,68 @@
                 console.log(`Player Selection: ${playerSelection}, Computer Selection: ${computerSelection}`);
                 switch (playerSelection) {
                     case "ROCK":
-                        if (computerSelection == "ROCK")
+                        if (computerSelection == "ROCK") {
                             alert("The computer chose rock! It's a draw!");
-                        else if (computerSelection == "PAPER")
-                            alert("The computer chose paper! The computer wins!");
-                        else if (computerSelection == "SCISSORS")
-                            alert("The computer chose scissors! You win!");
+                            return "DRAW";
+                        }
+                        else if (computerSelection == "PAPER") {
+                            alert("The computer chose paper! The computer wins this round!");
+                            return "LOSE";
+                        }
+                        else if (computerSelection == "SCISSORS") {
+                            alert("The computer chose scissors! You win this round!");
+                            return "WIN";
+                        }
                         break;
                         
                     case "PAPER":
-                        if (computerSelection == "ROCK")
-                            alert("The computer chose rock! You Win!");
-                        else if (computerSelection == "PAPER")
+                        if (computerSelection == "ROCK"){
+                            alert("The computer chose rock! You Win this round!");
+                            return "WIN";
+                        }
+                        else if (computerSelection == "PAPER") {
                             alert("The computer chose paper! It's a draw!");
-                        else if (computerSelection == "SCISSORS")
-                            alert("The computer chose scissors! The computer wins!");
+                            return "DRAW";
+                        }
+                        else if (computerSelection == "SCISSORS") {
+                            alert("The computer chose scissors! The computer wins this round!");
+                            return "LOSE";
+                        }
                         break;
                         
                     case "SCISSORS":
-                        if (computerSelection == "ROCK")
-                            alert("The computer chose rock! The computer wins!");
-                        else if (computerSelection == "PAPER")
-                            alert("The computer chose paper! You win!");
-                        else if (computerSelection == "SCISSORS")
+                        if (computerSelection == "ROCK") {
+                            alert("The computer chose rock! The computer wins this round!");
+                            return "LOSE";
+                        }
+                        else if (computerSelection == "PAPER") {
+                            alert("The computer chose paper! You win this round!");
+                            return "WIN";
+                        }
+                        else if (computerSelection == "SCISSORS") {
                             alert("The computer chose scissors! It's a draw!");
+                            return "DRAW";
+                        }
                         break;
 
                     default:
                         alert("Please input a valid option");
+                        return "DRAW";
                         break;
                 }
             }
 
-            round(prompt("Rock, Paper, or Scissors?").toUpperCase(), computerPlay());
+            var computerScore = 0;
+            var playerScore = 0;
+            
+            while(computerScore < 5 || playerScore < 5) {
+                var result = round(prompt("Rock, Paper, or Scissors?").toUpperCase(), computerPlay());
+                if (result == "DRAW") continue;
+                else if (result == "WIN") playerScore += 1;
+                else computerScore += 1;
+            }
+            if (computerScore == 5) alert("YOU ARE A LOSER!");
+            else alert("YOU KICK ASS!");
         </script>
     </body>
 </html>
