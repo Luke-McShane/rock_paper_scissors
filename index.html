@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <script>
+            function computerPlay () {
+                var options = ["ROCK", "PAPER", "SCISSORS"];
+                return options[Math.floor(Math.random() * 3)];
+            }
+
+            function round(playerSelection, computerSelection) {
+                console.log(`Player Selection: ${playerSelection}, Computer Selection: ${computerSelection}`);
+                switch (playerSelection) {
+                    case "ROCK":
+                        if (computerSelection == "ROCK")
+                            alert("The computer chose rock! It's a draw!");
+                        else if (computerSelection == "PAPER")
+                            alert("The computer chose paper! The computer wins!");
+                        else if (computerSelection == "SCISSORS")
+                            alert("The computer chose scissors! You win!");
+                        break;
+                        
+                    case "PAPER":
+                        if (computerSelection == "ROCK")
+                            alert("The computer chose rock! You Win!");
+                        else if (computerSelection == "PAPER")
+                            alert("The computer chose paper! It's a draw!");
+                        else if (computerSelection == "SCISSORS")
+                            alert("The computer chose scissors! The computer wins!");
+                        break;
+                        
+                    case "SCISSORS":
+                        if (computerSelection == "ROCK")
+                            alert("The computer chose rock! The computer wins!");
+                        else if (computerSelection == "PAPER")
+                            alert("The computer chose paper! You win!");
+                        else if (computerSelection == "SCISSORS")
+                            alert("The computer chose scissors! It's a draw!");
+                        break;
+
+                    default:
+                        alert("Please input a valid option");
+                        break;
+                }
+            }
+
+            round(prompt("Rock, Paper, or Scissors?").toUpperCase(), computerPlay());
+        </script>
+    </body>
+</html>
